@@ -2,6 +2,7 @@ package com.revature.model;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 public class Employee implements Serializable{
 
@@ -13,7 +14,7 @@ public class Employee implements Serializable{
 	private boolean managerstatus;
 	private String firstname;
 	private String lastname;
-	private String datehired;
+	private LocalDate datehired;
 	private String email;
 	private long phonenumber;
 	
@@ -42,7 +43,7 @@ public class Employee implements Serializable{
 	}
 
 	public Employee(int id, String username, String password, boolean managerstatus, String firstname, String lastname,
-			String datehired, String email, long phonenumber) {
+			LocalDate datehired, String email, long phonenumber) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -103,11 +104,11 @@ public class Employee implements Serializable{
 		this.lastname = lastname;
 	}
 
-	public String getDatehired() {
+	public LocalDate getDatehired() {
 		return datehired;
 	}
 
-	public void setDatehired(String datehired) {
+	public void setDatehired(LocalDate datehired) {
 		this.datehired = datehired;
 	}
 

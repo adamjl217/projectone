@@ -50,10 +50,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 				newreimbursement.setTimeapproved(rs.getTimestamp("timeapproved"));
 				newreimbursement.setReason(rs.getString("reason"));
 				
-				Blob new_image = rs.getBlob("image");
-//				System.out.println(new_image);
-				InputStream image = new_image.getBinaryStream();
-				newreimbursement.setImage(image);
+				newreimbursement.setImagestring(rs.getBlob("image"));
 				
 				reimbursementlist.add(newreimbursement);			
 			}
@@ -85,10 +82,9 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 				newreimbursement.setTimeapproved(rs.getTimestamp("timeapproved"));
 				newreimbursement.setReason(rs.getString("reason"));
 				
-				Blob new_image = rs.getBlob("image");
-				InputStream image = new_image.getBinaryStream();
-				newreimbursement.setImage(image);				
-				reimbursementlist.add(newreimbursement);
+				newreimbursement.setImagestring(rs.getBlob("image"));
+				
+				reimbursementlist.add(newreimbursement);			
 			}
 			return reimbursementlist;	
 		}  catch (SQLException sqle) {
@@ -117,10 +113,9 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 				newreimbursement.setTimeapproved(rs.getTimestamp("timeapproved"));
 				newreimbursement.setReason(rs.getString("reason"));
 				
-				Blob new_image = rs.getBlob("image");
-				InputStream image = new_image.getBinaryStream();
-				newreimbursement.setImage(image);				
-				reimbursementlist.add(newreimbursement);
+				newreimbursement.setImagestring(rs.getBlob("image"));
+				
+				reimbursementlist.add(newreimbursement);			
 			}
 			return reimbursementlist;	
 		}  catch (SQLException sqle) {
@@ -149,10 +144,8 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 				newreimbursement.setTimeapproved(rs.getTimestamp("timeapproved"));
 				newreimbursement.setReason(rs.getString("reason"));
 				
-				Blob new_image = rs.getBlob("image");
-				InputStream image = new_image.getBinaryStream();
-				newreimbursement.setImage(image);				
-				reimbursementlist.add(newreimbursement);
+				newreimbursement.setImagestring(rs.getBlob("image"));
+
 			}
 			return reimbursementlist;	
 		}  catch (SQLException sqle) {
@@ -184,10 +177,8 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 				newreimbursement.setTimeapproved(rs.getTimestamp("timeapproved"));
 				newreimbursement.setReason(rs.getString("reason"));
 				
-				Blob new_image = rs.getBlob("image");
-				InputStream image = new_image.getBinaryStream();
-				newreimbursement.setImage(image);				
-				return newreimbursement;	
+				newreimbursement.setImagestring(rs.getBlob("image"));
+	
 			}
 		}  catch (SQLException sqle) {
 			LogHere.warn(sqle.getMessage());
@@ -216,9 +207,8 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 				newreimbursement.setTimeapproved(rs.getTimestamp("timeapproved"));
 				newreimbursement.setReason(rs.getString("reason"));
 				
-				Blob new_image = rs.getBlob("image");
-				InputStream image = new_image.getBinaryStream();
-				newreimbursement.setImage(image);
+				newreimbursement.setImagestring(rs.getBlob("image"));
+				
 				
 				return newreimbursement;	
 			}
@@ -303,27 +293,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	}
 	
 	
-	@Override
-	public byte[] getImageBytes(int id) {
-		try (Connection conn = ConnectionUtil.getConnection()) {
-	    	byte[] image = null;
-			PreparedStatement stmt = conn.prepareStatement("SELECT image FROM reimbursement " + 
-					"WHERE id = " +  id);			
-			ResultSet rs = stmt.executeQuery();
-			while(rs.next()) {	
-				Blob blob = rs.getBlob("image");
-				int blobLength = (int) blob.length();  
-				image = blob.getBytes(1, blobLength);
-				blob.free();
-			}
-			return image;
-		} catch(SQLException sqle) {
-			System.err.println(sqle.getMessage());
-			System.err.println("SQL STATE " + sqle.getSQLState());
-			System.err.println("Error Code: " + sqle.getErrorCode());
-		}
-		return null;		
-	}
+
 
 
 

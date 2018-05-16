@@ -56,7 +56,7 @@ public class ReimbursementApprovalServlet extends HttpServlet {
 			}
 		}
 		
-		request.getRequestDispatcher("home_in.jsp").forward(request, response);
+		request.getRequestDispatcher("home.jsp").forward(request, response);
 
 	}
 

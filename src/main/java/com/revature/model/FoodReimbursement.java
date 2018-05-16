@@ -2,9 +2,14 @@ package com.revature.model;
 
 import java.io.InputStream;
 import java.io.Serializable;
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.Base64;
+
 
 import com.revature.factory.Reimbursement;
+import com.revature.logs.LogHere;
 
 public class FoodReimbursement implements Reimbursement, Serializable{
 
@@ -20,6 +25,7 @@ public class FoodReimbursement implements Reimbursement, Serializable{
 	private Timestamp timeapproved;
 	private String reason;
 	private InputStream  image;
+	private String imagestring;
 	
 //	private String food;
 	
@@ -77,6 +83,29 @@ public class FoodReimbursement implements Reimbursement, Serializable{
 		this.timeapproved = timeapproved;
 		this.reason = reason;
 		this.image = image;
+	}
+	
+	public FoodReimbursement(int id, double amount, String category, int requestor_id, int approver_id,
+			String status, Timestamp timemade, Timestamp timeapproved, String reason, InputStream image, Blob imageblob) {
+		super();
+		this.id = id;
+		this.amount = amount;
+		this.category = category;
+		this.requestor_id = requestor_id;
+		this.approver_id = approver_id;
+		this.status = status;
+		this.timemade = timemade;
+		this.timeapproved = timeapproved;
+		this.reason = reason;
+		this.image = image;
+		
+		byte[] encoded;
+		try {
+			encoded = Base64.getEncoder().encode(imageblob.getBytes(1, (int)imageblob.length()));
+			imagestring = new String(encoded);
+		} catch (SQLException sqle) {
+			LogHere.warn(sqle.getMessage());
+		}
 	}
 
 
@@ -176,6 +205,29 @@ public class FoodReimbursement implements Reimbursement, Serializable{
 
 	public void setImage(InputStream image) {
 		this.image = image;
+	}
+	
+	
+
+
+	public String getImagestring() {
+		return imagestring;
+	}
+
+
+	public void setImagestring(String imagestring) {
+		this.imagestring = imagestring;
+	}
+	
+	public void setImagestring(Blob imageblob) {
+		
+		byte[] encoded;
+		try {
+			encoded = Base64.getEncoder().encode(imageblob.getBytes(1, (int)imageblob.length()));
+			imagestring = new String(encoded);
+		} catch (SQLException sqle) {
+			LogHere.warn(sqle.getMessage());
+		}
 	}
 
 

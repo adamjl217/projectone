@@ -15,22 +15,22 @@ public class EmployeeService {
 		
 		try {			
 			if(request.getParameter("update_username") != "")
-				employee.setUsername(request.getParameter("updateusername"));
+				employee.setUsername(request.getParameter("update_username"));
 			
 			if(request.getParameter("update_password") != "")
-				employee.setPassword(request.getParameter("updatepassword"));
+				employee.setPassword(request.getParameter("update_password"));
 			
 			if(request.getParameter("update_firstname") != "")
-				employee.setFirstname(request.getParameter("updatefirstname"));
+				employee.setFirstname(request.getParameter("update_firstname"));
 			
 			if(request.getParameter("update_lastname") != "")
-				employee.setLastname(request.getParameter("updatelastname"));
+				employee.setLastname(request.getParameter("update_lastname"));
 			
 			if(request.getParameter("update_email") != "")
-				employee.setEmail(request.getParameter("updateemail"));
+				employee.setEmail(request.getParameter("update_email"));
 						
 			if(request.getParameter("update_phonenumer") != null)
-				employee.setPhonenumber(Long.parseLong(request.getParameter("updatephonenumer")));
+				employee.setPhonenumber(Long.parseLong(request.getParameter("update_phonenumer")));
 						
 			System.out.println("Updated information? " + EmployeeDaoService.updateEmployee(employee));
 			
@@ -38,7 +38,7 @@ public class EmployeeService {
 			npe.getMessage();
 		}
 		
-		return "/home_in.jsp";
+		return "/home.jsp";
 	}
 
 	public static String createemployee(HttpServletRequest request, HttpServletResponse response) {
@@ -65,7 +65,7 @@ public class EmployeeService {
 			System.out.println(npe.getMessage());
 		}
 		
-		return "/home_in.jsp";	
+		return "/home.jsp";	
 		
 	}
 

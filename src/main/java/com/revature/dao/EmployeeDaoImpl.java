@@ -40,7 +40,7 @@ public class EmployeeDaoImpl implements EmployeeDao{
 						(rs.getInt("manager")>0), 
 						rs.getString("firstname"), 
 						rs.getString("lastname"),
-						rs.getString("datehired"), 
+						rs.getDate("datehired").toLocalDate(), 
 						rs.getString("email"), 
 						rs.getLong("phonenumber")));
 			}
@@ -68,7 +68,7 @@ public class EmployeeDaoImpl implements EmployeeDao{
 						(rs.getInt("manager")>0), 
 						rs.getString("firstname"), 
 						rs.getString("lastname"),
-						rs.getString("datehired"), 
+						rs.getDate("datehired").toLocalDate(), 
 						rs.getString("email"), 
 						rs.getLong("phonenumber")));
 			}
@@ -97,7 +97,7 @@ public class EmployeeDaoImpl implements EmployeeDao{
 						(rs.getInt("manager")>0), 
 						rs.getString("firstname"), 
 						rs.getString("lastname"),
-						rs.getString("datehired"), 
+						rs.getDate("datehired").toLocalDate(), 
 						rs.getString("email"), 
 						rs.getLong("phonenumber"));
 			}
@@ -195,7 +195,7 @@ public class EmployeeDaoImpl implements EmployeeDao{
 						(rs.getInt("manager")>0), 
 						rs.getString("firstname"), 
 						rs.getString("lastname"),
-						rs.getString("datehired"), 
+						rs.getDate("datehired").toLocalDate(), 
 						rs.getString("email"), 
 						rs.getLong("phonenumber"));
 			}

@@ -1,6 +1,7 @@
 package com.revature.factory;
 
 import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Timestamp;
 
 public interface Reimbursement{
@@ -29,5 +30,8 @@ public interface Reimbursement{
 	public void setReason(String reason);
 	public InputStream getImage();
 	public void setImage(InputStream new_image);
+	public String getImagestring();
+	public void setImagestring(String imagestring);
+	public void setImagestring(Blob imageblob);
 
 }

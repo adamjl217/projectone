@@ -12,11 +12,18 @@ public class AjaxDispatcher {
 	
 	public static Object process(HttpServletRequest request, HttpServletResponse response) {
 		
-		
 		switch(request.getRequestURI()) {
-//		case "/ProjectOneWeb/getImage.ajax" : return ReimbursementDaoService.getImageBytes(35);
-		case "/ProjectOneWeb/getEmployees.ajax": return EmployeeDaoService.getAllEmployees();
-		case "/ProjectOneWeb/getAllManagers.ajax": return EmployeeDaoService.getAllManagers();
+		
+		case "/ProjectOneWeb/getAllEmployees.ajax": 
+			System.out.println("run inside employeelist ajax");
+			return EmployeeDaoService.getAllEmployees();
+		
+		case "/ProjectOneWeb/getAllManagers.ajax": 
+			System.out.println("run inside managerlist ajax");
+			return EmployeeDaoService.getAllManagers();
+			
+
+		
 		default: return new String("Not implemented");
 		}
 	}

@@ -52,8 +52,5 @@ public class ReimbursementDaoService {
 		return dao.getReimbursementFromId(id);
 	}
 	
-	public static byte[] getImageBytes(int id) {
-		return dao.getImageBytes(id);
-	}
 
 }

@@ -18,13 +18,13 @@
 	<div class="container">
 		<nav class="navbar navbar-inverse">
 			<div class="navbar-header col-md-2 active">
-				<a href="./ERS_out.jsp" class="navbar-brand">ERS</a>
+				<a href="./ERS.jsp" class="navbar-brand">ERS</a>
 			</div>
 			<ul class="navbar-nav nav col-md-6">
-				<li><a href="./home_out.jsp">Home</a></li>
-				<li><a href="./about_out.jsp">About</a></li>
-				<li><a href="./services_out.jsp">Services</a></li>
-				<li><a href="./contact_out.jsp">Contact</a></li>
+				<li><a href="./home.jsp">Home</a></li>
+				<li><a href="./about.jsp">About</a></li>
+				<li><a href="./services.jsp">Services</a></li>
+				<li><a href="./contact.jsp">Contact</a></li>
 			</ul>
 
 			<ul class="navbar-nav nav navbar-right col-md-2 col-md-offset-2">

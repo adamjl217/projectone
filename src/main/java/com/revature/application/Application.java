@@ -13,9 +13,12 @@ public class Application {
 	public static void main(String[] args) {
 
 //		System.out.println("Program has begun ");
-//		Employee anotherperson = new Employee ("s", "s", true, "adam", "lahey", "emailhere", 4168123456L);
+//		Employee anotherperson = new Employee ("test", "testing", true, "adam", "lahey", "emailhere@gmail.com", 4168123456L);
 //		System.out.println(EmployeeDaoService.insertEmployee(anotherperson));
 //		System.out.println("here now");
+//		
+//		System.out.println("Updated information? " + EmployeeDaoService.updateEmployee(anotherperson));
+//
 //		
 //		Employee anotherperson2 = new Employee ("neat2", "person", false, "neatname", "personad", "emailagain", 4168123456L);
 //		System.out.println(EmployeeDaoService.insertEmployee(anotherperson2));
@@ -39,7 +42,7 @@ public class Application {
 //		List<Employee> managerlist = new ArrayList<>();
 //		managerlist = EmployeeDaoService.getAllManagers();
 //		for(Employee e : managerlist) {
-//			System.out.println(e.getLastname());
+//			System.out.println(e);
 //		}
 //		
 //		List<Employee> employeelist = new ArrayList<>();

@@ -1,13 +1,13 @@
 window.onload = function () {
-	getEmployees();
+	getAllEmployees();
 }
 
-function getEmployees() {
+function getAllEmployees() {
     let xhr = new XMLHttpRequest();
-    
-    xhr.open("POST", "http://localhost:8080/ProjectOneWeb/getEmployees.ajax");
+
+    xhr.open("POST", "http://localhost:8080/ProjectOneWeb/getAllEmployees.ajax");
     xhr.send();
-    
+
     xhr.onreadystatechange = function () {
 
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -15,15 +15,14 @@ function getEmployees() {
             let employees = JSON.parse(xhr.responseText);
 
             for (let employee of employees) {
-            	
-            	
+                            	
                 let id = employee.id;
                 let username = employee.username;
                 let firstname = employee.firstname;
                 let lastname = employee.lastname;
                 let phonenumber = employee.phonenumber;
                 let email = employee.email;
-                let datehired = employee.datehired;
+                let datehired = (employee.datehired).toString();
                 
                 let row = document.createElement("tr");
                 
@@ -42,7 +41,7 @@ function getEmployees() {
                 tdLastname.textContent = lastname;
                 tdPhonenumber.textContent = phonenumber;
                 tdEmail.textContent = email;
-                tdDatehired.textContent = datehired;
+                tdDatehired.textContent = Date.parse(datehired);
 
                 row.appendChild(tdId);
                 row.appendChild(tdUsername);
@@ -57,7 +56,5 @@ function getEmployees() {
             }
 
         }
-
     }
 }
-

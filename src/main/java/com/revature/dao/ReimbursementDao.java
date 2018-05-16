@@ -17,6 +17,5 @@ public interface ReimbursementDao {
 	boolean rejectReimbursement(Reimbursement reimbursement);
 	boolean approveReimbursement(Reimbursement reimbursement);
 	Reimbursement getReimbursementFromId(int id);
-	byte[] getImageBytes(int id);
 
 }

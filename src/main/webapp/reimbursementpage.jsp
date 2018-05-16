@@ -32,13 +32,13 @@
 	<div class="container">
 		<nav class="navbar navbar-inverse">
 			<div class="navbar-header col-md-1">
-				<a href="./ERS_in.jsp" class="navbar-brand">ERS</a>
+				<a href="./ERS.jsp" class="navbar-brand">ERS</a>
 			</div>
 			<ul class="navbar-nav nav col-md-8">
-				<li><a href="./home_in.jsp">Home</a></li>
-				<li><a href="./about_in.jsp">About</a></li>
-				<li><a href="./services_in.jsp">Services</a></li>
-				<li><a href="./contact_in.jsp">Contact</a></li>
+				<li><a href="./home.jsp">Home</a></li>
+				<li><a href="./about.jsp">About</a></li>
+				<li><a href="./services.jsp">Services</a></li>
+				<li><a href="./contact.jsp">Contact</a></li>
 				<li><a class="btn btn-default" href="./reimbursementpage.jsp" role="button">Reimbursements</a></li>
 				<% if(employee.isManagerstatus()){ %>
 				<li><a class="btn btn-default" href="./employeelist.jsp" role="button">Employee Info</a></li>
@@ -96,11 +96,10 @@
 				<div class="form-group">
 					<label for="reimbursementamount">Enter the amount: </label> 
 					<input type="number" step=".01" name="reimbursementamount" class="form-control" required>
-					<label for="reimbursementamount">Enter the link to the image of your receipt: </label> 
 				</div>
 				<div class="form-group">
 					<label for="receiptimage">Image of receipt</label>
-				    <input type="file" name="receiptimage" id="receiptimage" accept=".jpg, .jpeg, .png">
+				    <input onchange="ValidateSize(this)" type="file" name="receiptimage" id="receiptimage" accept=".jpg, .jpeg, .png">
 				</div>
 				<input type="submit" class="form-control btn btn-success" enctype="multipart/form-data" value="Submit Form">
 			</form>
@@ -142,13 +141,10 @@
 							<td></td>
 							<td><%=r.getTimemade().toGMTString()%></td>
 							<td> </td>
-							<td><%if(r.getImage() != null){ %>   
-							
-						
-							
-							
-							<img src="data:image/png;base64,[B@7200d52a"> <% } %></td>
-						<tr>
+							<td><%if(r.getImagestring() != null){ %>
+								<img id="myImg" height="42" width="42" src="data:image/png;base64,<%=r.getImagestring() %>"> <% } %>
+							</td>
+						</tr>
 						<% } else { %>
 						<tr>
 							<td><%=r.getId()%></td>
@@ -160,8 +156,10 @@
 							<td><%=r.getReason() %></td>
 							<td><%=r.getTimemade().toGMTString()%></td>
 							<td><%=r.getTimeapproved().toGMTString()%></td>
-							<td><%if(r.getImage() != null){ %>   <img src="data:image/png;base64,<%=r.getImage().toString() %>"> <% } %></td>
-						<tr>
+							<td><%if(r.getImagestring() != null){ %>
+								<img src="data:image/png;base64,<%=r.getImagestring() %>"> <% } %>
+							</td>						
+						</tr>
 						<% } %>
 						<% } %>
 						</tbody>
@@ -278,7 +276,8 @@
 		</div>
 	</div>
 
-	<script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
 		$(document).ready(function(){
 		  $("#reimbursement_Filter").on("keyup", function() {
 		    var value = $(this).val().toLowerCase();
@@ -298,10 +297,12 @@
 		  });
 		});
 	</script>
+	
 
 	<script src="./js/hidebutton.js"></script>
 	<script src="./js/hidereimbursementbutton.js"></script>
 	<script src="./js/hidependingbutton.js"></script>
+	<script src="./js/filesizelimit.js"></script>
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>

@@ -16,13 +16,13 @@
 	<div class="container">
 		<nav class="navbar navbar-inverse">
 			<div class="navbar-header col-md-1">
-				<a href="./ERS_in.jsp" class="navbar-brand">ERS</a>
+				<a href="./ERS.jsp" class="navbar-brand">ERS</a>
 			</div>
 			<ul class="navbar-nav nav col-md-10">
-				<li><a href="./home_in.jsp">Home</a></li>
-				<li><a href="./about_in.jsp">About</a></li>
-				<li><a href="./services_in.jsp">Services</a></li>
-				<li><a href="./contact_in.jsp">Contact</a></li>
+				<li><a href="./home.jsp">Home</a></li>
+				<li><a href="./about.jsp">About</a></li>
+				<li><a href="./services.jsp">Services</a></li>
+				<li><a href="./contact.jsp">Contact</a></li>
 				<li><a class="btn btn-default" href="./reimbursementpage.jsp" role="button">Reimbursements</a></li>
 				<li><a class="btn btn-default" href="./employeelist.jsp" role="button">Employee Info</a></li>
 			</ul>
