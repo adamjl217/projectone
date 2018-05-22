@@ -43,6 +43,9 @@
   	<url-pattern>*.ajax</url-pattern>
   </servlet-mapping>
   
+<<<<<<< HEAD
 
   
+=======
+>>>>>>> 510b254fc058f560e70733268cb3aefc5f5fb605
 </web-app>
